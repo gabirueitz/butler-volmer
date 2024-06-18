@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Butler-Volmer</title>
+
+		<link rel="stylesheet" href="./src/css/reset.css" />
+		<link rel="stylesheet" href="./src/css/style.css" />
+	</head>
+	<body>
+		<main>
+			<h1>Gráfico interativo de Butler-Volmer</h1>
+			<div class="content">
+				<div class="textBlock">
+					<p>Esse é um gráfico interativo da Equação de Butler-Volmer:</p>
+					<div>
+						<img
+							class="mainEquation"
+							src="./src/img/eq_butler-volmer.png"
+							alt="Equação de Butler-Volmer" />
+
+						<p>onde:</p>
+						<ul>
+							<li>
+								<i>j</i>: densidade de corrente no eletrodo (A cm<sup>-2</sup>)
+							</li>
+							<li>
+								<i>j<sub>0</sub></i
+								>: é a densidade de corrente de troca (A cm<sup>-2</sup>)
+							</li>
+							<li><i>&alpha;</i>: coeficiente de transferência de carga</li>
+							<li><i>z</i>: número de elétrons transferidos</li>
+							<li>
+								<i>F</i>: constante de Faraday (96 485 C mol<sup>-1</sup>)
+							</li>
+							<li>
+								<i>R</i>: constante dos Gases Ideais (8,341 J K<sup>-1</sup>
+								mol<sup>-1</sup>)
+							</li>
+							<li><i>T</i>: temperatura (K)</li>
+							<li><i>&eta;</i>: sobrepotencial de ativação (V)</li>
+						</ul>
+					</div>
+
+					<form class="options" action="">
+						<div class="inputContainer">
+							<label for="current">Corrente de troca (j<sub>0</sub>):</label>
+							<input
+								type="range"
+								name="current"
+								id="currentRange"
+								min="0.01"
+								max="0.5"
+								value="0.1"
+								step="0.01" />
+							<span><span id="currentValue"></span> A</span>
+						</div>
+
+						<div class="inputContainer">
+							<label for="alpha">Coeficiente de troca (&alpha;):</label>
+							<input
+								type="range"
+								name="alpha"
+								id="alphaRange"
+								min="0"
+								max="1"
+								value="0.5"
+								step="0.05" />
+							<span><span id="alphaValue"></span></span>
+						</div>
+						<div class="inputContainer">
+							<label for="temp">Temperatura (T):</label>
+							<input
+								type="range"
+								name="temp"
+								id="tempRange"
+								min="200"
+								max="400"
+								value="300"
+								step="10" />
+							<span><span id="tempValue"></span> K</span>
+						</div>
+						<button type="reset" id="reset">Resetar</button>
+					</form>
+				</div>
+				<div class="graphArea">
+					<div class="chart-container">
+						<canvas id="chart"></canvas>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script src="./src/js/script.js"></script>
+	</body>
+</html>
